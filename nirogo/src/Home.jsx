@@ -1,10 +1,9 @@
-import nirogo_Logo from './assets/nirogo.png'
-
+import Hero from "./components/Hero";
 
 const Home = () => {
   return (
-    <div>
-      <img src={nirogo_Logo} className="base" width="150" height="50" alt="" />
+    <div className="mt-6">
+      <Hero></Hero>
     </div>
   );
 };
