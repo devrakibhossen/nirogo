@@ -1,24 +1,26 @@
 import { CiSearch } from 'react-icons/ci';
 import nirogo_Logo from '../assets/nirogo.png'
-import { RiAccountCircleLine } from 'react-icons/ri';
+import { RiAccountCircleLine, RiArrowDropDownLine, RiLogoutBoxRLine, RiShoppingBag3Line, RiUser3Line } from 'react-icons/ri';
 import { BsCartPlus } from 'react-icons/bs';
 import { SlLocationPin } from 'react-icons/sl';
 import { FaRegHeart } from 'react-icons/fa';
 import { Link, NavLink } from 'react-router';
 import { useEffect, useRef, useState } from 'react';
 import { FiChevronLeft, FiChevronRight } from 'react-icons/fi';
+import { MdOutlineFeedback, MdOutlineSpaceDashboard } from 'react-icons/md';
 
 const Navbar = () => {
-
+    const [isOpen, setIsOpen] = useState(false);
+    const dropdownRef = useRef(null);
     const scrollRef = useRef(null);
     const [showLeftBtn, setShowLeftBtn] = useState(false);
     const [showRightBtn, setShowRightBtn] = useState(true);
     const categories = [
         { name: 'Home', path: '/' },
+        { name: 'All Products', path: '/all-products' },
         { name: 'Medicine', path: '/medicine' },
         { name: 'Healthcare', path: '/healthcare' },
         { name: 'Beauty', path: '/beauty' },
-        { name: 'Sexual Wellness', path: '/sexual-wellness' },
         { name: 'Baby & Mom Care', path: '/baby-mom-care' },
         { name: 'Herbal', path: '/herbal' },
         { name: 'Home Care', path: '/home-care' },
@@ -26,17 +28,12 @@ const Navbar = () => {
         { name: 'Food and Nutrition', path: '/food-nutrition' },
         { name: 'Pet Care', path: '/pet-care' },
         { name: 'Veterinary', path: '/veterinary' },
+        { name: 'Sexual Wellness', path: '/sexual-wellness' },
     ];
-
-    // Scroll position check function
     const checkScrollPosition = () => {
         if (scrollRef.current) {
             const { scrollLeft, scrollWidth, clientWidth } = scrollRef.current;
-
-            // Left button show korbe jodi scroll > 5px hoy
             setShowLeftBtn(scrollLeft > 5);
-
-            // Right button hide hoye jabe jodi ekebare shesh-e chole jay
             setShowRightBtn(scrollLeft + clientWidth < scrollWidth - 5);
         }
     };
@@ -54,7 +51,6 @@ const Navbar = () => {
         };
     }, []);
 
-    // Smooth Scroll Handler
     const handleScroll = (direction) => {
         if (scrollRef.current) {
             const { scrollLeft, clientWidth } = scrollRef.current;
@@ -65,6 +61,17 @@ const Navbar = () => {
             });
         }
     };
+
+    useEffect(() => {
+        const handleClickOutside = (event) => {
+            if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
+                setIsOpen(false);
+            }
+        };
+        document.addEventListener("mousedown", handleClickOutside);
+        return () => document.removeEventListener("mousedown", handleClickOutside);
+    }, []);
+    const user = false;
 
     return (
         <nav className="bg-white pt-2 ">
@@ -132,14 +139,101 @@ const Navbar = () => {
                                 <span className="hidden sm:inline text-sm font-medium">Cart</span>
                             </button>
                         </Link>
-                        <Link to="/accounts/signin">
-                            <button
-                                className="bg-[#1E3A8A] hover:bg-blue-900 text-white font-medium text-sm md:text-base py-1.5 px-3.5 rounded-full transition-colors duration-200 flex items-center gap-1.5 justify-center shrink-0 cursor-pointer"
-                            >
-                                <RiAccountCircleLine className="text-lg" />
-                                Account
-                            </button>
-                        </Link>
+                        {
+                            user ? (
+                                <div className="relative inline-block text-left" ref={dropdownRef}>
+                                    {/* Profile Button */}
+                                    <button
+                                        onClick={() => setIsOpen(!isOpen)}
+                                        className="inline-flex items-center justify-center gap-2 p-1.5 pr-3 bg-slate-100 hover:bg-slate-200 text-sm font-medium rounded-full shrink-0 cursor-pointer transition-all duration-200"
+                                    >
+                                        <img
+                                            src="/src/assets/profile.jpg"
+                                            className="w-8 h-8 rounded-full object-cover border border-slate-300"
+                                            alt="Profile"
+                                        />
+                                        <span className="hidden sm:inline text-sm font-semibold text-[#1E3A8A]">
+                                            Account
+                                        </span>
+                                        <RiArrowDropDownLine
+                                            className={`text-slate-600 text-base transition-transform duration-200 ${isOpen ? "rotate-180" : ""
+                                                }`}
+                                        />
+                                    </button>
+
+                                    {/* Dropdown Menu */}
+                                    {isOpen && (
+                                        <div className="absolute right-0 mt-2 w-56 bg-white rounded-lg  border border-slate-200 py-2 z-50 animate-in fade-in zoom-in-95 duration-150">
+                                            {/* User Brief Info Section */}
+                                            <div className="px-4 py-2.5 border-b border-slate-100">
+                                                <p className="text-xs text-slate-400 font-medium">Signed in as</p>
+                                                <p className="text-sm font-bold text-slate-800 truncate">rakib@gmail.com</p>
+                                            </div>
+
+                                            {/* Menu Items */}
+                                            <div className="py-1">
+                                                <Link
+                                                    to="/account/profile"
+                                                    onClick={() => setIsOpen(false)}
+                                                    className="flex items-center gap-3 px-4 py-2 text-sm text-slate-700 hover:bg-blue-50 hover:text-[#1E3A8A] transition-colors"
+                                                >
+                                                    <RiUser3Line className="text-lg" />
+                                                    <span>My Profile</span>
+                                                </Link>
+
+                                                <Link
+                                                    to="/dashboard"
+                                                    onClick={() => setIsOpen(false)}
+                                                    className="flex items-center gap-3 px-4 py-2 text-sm text-slate-700 hover:bg-blue-50 hover:text-[#1E3A8A] transition-colors"
+                                                >
+                                                    <MdOutlineSpaceDashboard className="text-lg" />
+                                                    <span>Admin Dashboard</span>
+                                                </Link>
+                                                <Link
+                                                    to="/account/orders"
+                                                    onClick={() => setIsOpen(false)}
+                                                    className="flex items-center gap-3 px-4 py-2 text-sm text-slate-700 hover:bg-blue-50 hover:text-[#1E3A8A] transition-colors"
+                                                >
+                                                    <RiShoppingBag3Line className="text-lg" />
+                                                    <span>My Orders</span>
+                                                </Link>
+                                                <Link
+                                                    to="/account/orders"
+                                                    onClick={() => setIsOpen(false)}
+                                                    className="flex items-center gap-3 px-4 py-2 text-sm text-slate-700 hover:bg-blue-50 hover:text-[#1E3A8A] transition-colors"
+                                                >
+                                                    <MdOutlineFeedback className="text-lg" />
+                                                    <span>Feedback</span>
+                                                </Link>
+                                            </div>
+
+                                            {/* Logout Section */}
+                                            <div className="border-t border-slate-100 pt-1 mt-1">
+                                                <button
+                                                    onClick={() => {
+                                                        setIsOpen(false);
+                                                        // Handle logout logic here
+                                                    }}
+                                                    className="w-full flex items-center gap-3 px-4 py-2 text-sm text-rose-600 hover:bg-rose-50 transition-colors font-medium text-left"
+                                                >
+                                                    <RiLogoutBoxRLine className="text-lg" />
+                                                    <span>Sign Out</span>
+                                                </button>
+                                            </div>
+                                        </div>
+                                    )}
+                                </div>
+                            ) : (<Link to="/accounts/sign-in">
+                                <button
+                                    className="inline-flex items-center justify-center gap-1.5 px-3 py-1.5 md:px-4 md:py-2 bg-[#1E3A8A] hover:bg-blue-900 text-white text-sm font-medium rounded-full transition-colors duration-200 shrink-0 cursor-pointer "
+                                >
+                                    <RiAccountCircleLine className="text-xl" />
+                                    <span className="hidden sm:inline text-sm font-medium">Account</span>
+
+                                </button>
+                            </Link>)
+                        }
+
                     </div>
                 </div>
                 <div className="relative border-y border-gray-200 bg-white">
@@ -168,7 +262,7 @@ const Navbar = () => {
                                             to={category.path}
                                             end={category.path === '/'}
                                             className={({ isActive }) =>
-                                                `text-gray-900 relative pb-1 inline-block transition-colors duration-200 ${isActive
+                                                `text-gray-900 text-sm relative pb-1 inline-block transition-colors duration-200 ${isActive
                                                     ? 'text-[#1E3A8A] font-medium'
                                                     : 'text-gray-800 hover:text-[#1E3A8A]'
                                                 }`
