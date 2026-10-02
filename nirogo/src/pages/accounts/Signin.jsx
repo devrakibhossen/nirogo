@@ -21,30 +21,27 @@ const Signin = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     console.log("Login Data:", formData);
-    // TODO: connect with backend / firebase auth
+  
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center p-3">
+    <div className="min-h-screen flex items-center justify-center p-4">
       <div className="w-[400px] mx-auto bg-white rounded-2xl  overflow-hidden">
 
-        
-
-        {/* Right Side — Form */}
-        <div className="p-5 flex flex-col justify-center">
-          <div className="mb-8">
-            <h2 className="text-3xl font-bold text-gray-800 mb-2">
+        <div className="p-8 flex flex-col justify-center">
+          <div className="mb-5">
+            <h2 className="text-2xl font-bold text-gray-800 mb-2">
               Sign In
             </h2>
-            <p className="text-gray-500 text-sm">
+            <p className="text-gray-500 text-xs font-medium">
               Enter your credentials to continue
             </p>
           </div>
 
-          <form onSubmit={handleSubmit} className="space-y-5">
+          <form onSubmit={handleSubmit} className="space-y-4">
             {/* Email */}
             <div>
-              <label className="block text-sm font-medium text-gray-700 mb-2">
+              <label className="block text-xs font-medium text-gray-700 mb-2">
                 Email Address
               </label>
               <input
@@ -54,13 +51,13 @@ const Signin = () => {
                 onChange={handleChange}
                 placeholder="you@example.com"
                 required
-                className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary transition"
+                className="w-full px-4 py-2.5 border border-gray-300 rounded-full focus:outline-none focus:ring-2 focus:ring-primary/50 text-sm focus:border-primary transition"
               />
             </div>
 
             {/* Password */}
             <div>
-              <label className="block text-sm font-medium text-gray-700 mb-2">
+              <label className="block text-xs font-medium text-gray-700 mb-2">
                 Password
               </label>
               <div className="relative">
@@ -71,7 +68,7 @@ const Signin = () => {
                   onChange={handleChange}
                   placeholder="••••••••"
                   required
-                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary transition pr-12"
+                  className="w-full px-4 py-2.5 text-sm border border-gray-300 rounded-full focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary transition pr-12"
                 />
                 <button
                   type="button"
@@ -83,8 +80,7 @@ const Signin = () => {
               </div>
             </div>
 
-            {/* Remember + Forgot */}
-            <div className="flex items-center justify-between text-sm">
+            <div className="flex items-center justify-between text-xs font-medium">
               <label className="flex items-center gap-2 cursor-pointer">
                 <input
                   type="checkbox"
@@ -103,34 +99,32 @@ const Signin = () => {
               </Link>
             </div>
 
-            {/* Submit Button */}
             <button
               type="submit"
-              className="w-full bg-[#1E3A8A] text-white py-3 rounded-full font-semibold hover:bg-primary/90 active:scale-[0.98] transition-all duration-200 shadow-lg shadow-primary/30"
+              className="w-full bg-[#1E3A8A] text-white py-2 rounded-full font-semibold hover:bg-primary/90 active:scale-[0.98] transition-all duration-200 "
             >
               Sign In
             </button>
           </form>
 
-          {/* Divider */}
-          <div className="flex items-center my-6">
+          <div className="flex items-center my-5">
             <div className="flex-1 h-px bg-gray-300"></div>
             <span className="px-4 text-sm text-gray-500">OR</span>
             <div className="flex-1 h-px bg-gray-300"></div>
           </div>
 
-          {/* Social Login */}
+      
           <div className="grid grid-cols-2 gap-3">
             <button
               type="button"
-              className="flex items-center justify-center gap-2 border border-gray-300 py-2.5 rounded-lg hover:bg-gray-50 transition"
+              className="flex items-center justify-center gap-2 border border-gray-300 py-2.5 rounded-full hover:bg-gray-50 transition"
             >
               <FaGoogle className="text-red-500" />
               <span className="text-sm font-medium text-gray-700">Google</span>
             </button>
             <button
               type="button"
-              className="flex items-center justify-center gap-2 border border-gray-300 py-2.5 rounded-lg hover:bg-gray-50 transition"
+              className="flex items-center justify-center gap-2 border border-gray-300 py-2.5 rounded-full hover:bg-gray-50 transition"
             >
               <FaFacebookF className="text-blue-600" />
               <span className="text-sm font-medium text-gray-700">Facebook</span>
@@ -138,10 +132,10 @@ const Signin = () => {
           </div>
 
           {/* Signup link */}
-          <p className="text-center text-sm text-gray-600 mt-8">
+          <p className="text-center text-xs font-medium text-gray-600 mt-5">
             Don't have an account?{" "}
             <Link
-              to="/signup"
+              to="/accounts/sign-up"
               className="text-primary font-semibold hover:underline"
             >
               Sign Up

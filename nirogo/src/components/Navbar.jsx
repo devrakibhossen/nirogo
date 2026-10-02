@@ -71,7 +71,7 @@ const Navbar = () => {
         document.addEventListener("mousedown", handleClickOutside);
         return () => document.removeEventListener("mousedown", handleClickOutside);
     }, []);
-    const user = false;
+    const user = true;
 
     return (
         <nav className="bg-white pt-2 ">
@@ -80,7 +80,7 @@ const Navbar = () => {
                     <div className="flex items-center gap-5 ">
                         <img src={nirogo_Logo} className="base" width="150" height="52" alt="" />
                         <div className="w-[350px] mx-auto hidden md:block">
-                            <div className="relative flex items-center bg-white rounded-full border border-gray-200  focus-within:shadow-md focus-within:border-blue-600 transition-all duration-200 p-1.5">
+                            <div className="text-sm relative flex items-center bg-white rounded-full border border-gray-200   focus-within:border-blue-600 transition-all duration-200 p-1.5">
 
 
                                 <div className="pl-2 pr-2 text-gray-400 flex items-center justify-center">
@@ -91,13 +91,13 @@ const Navbar = () => {
                                 <input
                                     type="search"
                                     placeholder="Search medicine..."
-                                    className="w-full bg-transparent text-gray-800 placeholder-gray-400 text-sm md:text-base focus:outline-none pr-3"
+                                    className=" w-full bg-transparent text-gray-800 placeholder-gray-400 text-sm md:text-base focus:outline-none pr-3"
                                 />
 
 
                                 <button
                                     type="submit"
-                                    className="bg-[#1E3A8A] hover:bg-blue-900 text-white font-medium text-sm md:text-base py-1.5 px-3.5 rounded-full transition-colors duration-200 flex items-center justify-center shrink-0 cursor-pointer"
+                                    className="bg-[#1E3A8A] hover:bg-blue-900 text-white text-sm md:text-base py-1.5 px-3.5 rounded-full transition-colors duration-200 flex items-center justify-center shrink-0 cursor-pointer"
                                 >
                                     Search
                                 </button>
