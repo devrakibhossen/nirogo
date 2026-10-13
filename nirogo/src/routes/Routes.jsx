@@ -9,6 +9,9 @@ import Feedbacks from "../pages/admin/Feedbacks";
 import OrderManagement from "../pages/admin/OrderManagement";
 import Signup from "../pages/accounts/Signup";
 import Signin from "../pages/accounts/Signin";
+import Profile from "../pages/accounts/Profile";
+import AddProduct from "../pages/admin/AddProduct";
+import Settings from "../pages/admin/Settings";
 
 const router = createBrowserRouter([
     {
@@ -16,15 +19,19 @@ const router = createBrowserRouter([
         element: <Root />,
         children: [
             {
-                path: "/",
+                index: true, 
                 element: <Home />
             },
             {
-                path: "/accounts/sign-up",
+                path: "account/profile", 
+                element: <Profile/>
+            },
+            {
+                path: "accounts/sign-up", 
                 element: <Signup/>
             },
             {
-                path: "/accounts/sign-in",
+                path: "accounts/sign-in", 
                 element: <Signin/>
             },
         ]
@@ -34,24 +41,32 @@ const router = createBrowserRouter([
         element: <AdminLayout />,
         children: [
             {
-                path: "/dashboard",
+                index: true, 
                 element: <Dashboard />
             },
             {
-                path: "/dashboard/all-medicine",
+                path: "all-medicine", 
                 element: <AllMedicine/>
             },
             {
-                path: "/dashboard/user-management",
+                path: "add-product", 
+                element: <AddProduct/>
+            },
+            {
+                path: "user-management", 
                 element: <UserManagement/>
             },
             {
-                path: "/dashboard/order-management",
+                path: "order-management",
                 element: <OrderManagement/>
             },
             {
-                path: "/dashboard/feedbacks",
+                path: "feedbacks", 
                 element: <Feedbacks/>
+            },
+            {
+                path: "settings", 
+                element: <Settings/>
             },
         ]
     }

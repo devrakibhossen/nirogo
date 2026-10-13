@@ -12,19 +12,21 @@ import {
 
 import nirogo_Logo from '../assets/nirogo.png'
 import { MdOutlineDashboardCustomize } from "react-icons/md";
+import { FaPlus } from "react-icons/fa6";
 
 const Sidebar = () => {
     const [isCollapsed, setIsCollapsed] = useState(false);
 
 
     const mainNavItems = [
-        { name: "Dashboard", path: "/dashboard", icon: MdOutlineDashboardCustomize },
-        { name: "All Products", path: "/dashboard/all-medicine", icon: HiOutlineSquare3Stack3D },
-        { name: "User Management", path: "/dashboard/user-management", icon: HiOutlineUsers },
-        { name: "Order Management", path: "/dashboard/order-management", icon: HiOutlineShoppingBag },
-        { name: "Feedbacks", path: "/dashboard/feedbacks", icon: HiOutlineChatBubbleLeftRight },
-        { name: "Home", path: "/", icon: HiOutlineHome },
-    ];
+    { name: "Dashboard", path: "/dashboard", icon: MdOutlineDashboardCustomize },
+    { name: "All Products", path: "/dashboard/all-medicine", icon: HiOutlineSquare3Stack3D },
+    { name: "Add Product", path: "/dashboard/add-product", icon: FaPlus }, 
+    { name: "User Management", path: "/dashboard/user-management", icon: HiOutlineUsers },
+    { name: "Order Management", path: "/dashboard/order-management", icon: HiOutlineShoppingBag },
+    { name: "Feedbacks", path: "/dashboard/feedbacks", icon: HiOutlineChatBubbleLeftRight },
+    { name: "Home", path: "/", icon: HiOutlineHome },
+];
 
     const bottomNavItems = [
         { name: "Settings", path: "/dashboard/settings", icon: HiOutlineCog6Tooth },
