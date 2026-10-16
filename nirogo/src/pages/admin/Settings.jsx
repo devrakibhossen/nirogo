@@ -1,15 +1,9 @@
-import React, { useState } from "react";
+import{ useState } from "react";
 import { 
-    FaStore, 
-    FaUser, 
+    FaStore,  
     FaBell, 
     FaLock, 
-    FaSave, 
-    FaGlobe, 
-    FaEnvelope, 
-    FaPhone, 
-    FaMapMarkerAlt, 
-    FaShieldAlt 
+    FaSave,
 } from "react-icons/fa";
 
 const Settings = () => {

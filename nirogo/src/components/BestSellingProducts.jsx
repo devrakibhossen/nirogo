@@ -11,7 +11,9 @@ const BestSellingProducts = () => {
             ],
             "description": "Fast-acting relief for mild-to-moderate fever, headaches, muscle aches, and general body pains. Package contains 24 tablets.",
             "price": 4.99,
-            "ratting": 4.8
+            "ratting": 4.8,
+            "brand": "Square",
+            "category": "Medicine",
         },
         {
             "name": "Vitamin C 1000mg + Zinc Effervescent Tablets",

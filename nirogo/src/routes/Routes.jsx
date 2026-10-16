@@ -12,6 +12,8 @@ import Signin from "../pages/accounts/Signin";
 import Profile from "../pages/accounts/Profile";
 import AddProduct from "../pages/admin/AddProduct";
 import Settings from "../pages/admin/Settings";
+import AllProducts from "../pages/AllProducts";
+import ProductDetails from "../pages/ProductDetails";
 
 const router = createBrowserRouter([
     {
@@ -21,6 +23,14 @@ const router = createBrowserRouter([
             {
                 index: true, 
                 element: <Home />
+            },
+            {
+                path: "all-products", 
+                element: <AllProducts/>
+            },
+            {
+                path: "product/:slug", 
+                element: <ProductDetails />
             },
             {
                 path: "account/profile", 

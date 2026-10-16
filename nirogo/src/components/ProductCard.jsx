@@ -1,3 +1,5 @@
+import { Link } from "react-router";
+
 const ProductCard = ({ product }) => {
     return (
         <div className="group relative bg-white rounded-lg p-3  transition-all duration-300 border border-slate-200 flex flex-col justify-between overflow-hidden">
@@ -32,7 +34,9 @@ const ProductCard = ({ product }) => {
 
 
                 <h3 className="font-semibold text-slate-800 text-base leading-snug line-clamp-2 hover:text-[#1E3A8A] transition-colors cursor-pointer">
+                    <Link to={`/product/${product.name}`}>
                     {product.name}
+                    </Link>
                 </h3>
 
 
