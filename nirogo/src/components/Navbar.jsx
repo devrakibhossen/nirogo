@@ -118,12 +118,12 @@ const Navbar = () => {
                             </button>
                         </Link>
 
-                        <Link to="/">
+                        <Link to="/track-order">
                             <button className="flex items-center gap-2 text-gray-700 hover:text-[#1E3A8A] transition-colors duration-200 group cursor-pointer">
                                 <div className="p-2 rounded-full bg-gray-100 group-hover:bg-blue-50 transition-colors">
                                     <SlLocationPin className="text-xl text-gray-600 group-hover:text-[#1E3A8A]" />
                                 </div>
-                                <span className="hidden sm:inline text-sm font-medium">Tracking Order</span>
+                                <span className="hidden sm:inline text-sm font-medium">Track Order</span>
                             </button>
                         </Link>
 

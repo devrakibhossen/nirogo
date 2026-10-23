@@ -5,7 +5,7 @@ import { HiOutlinePencilSquare, HiOutlineTrash, HiOutlineEye } from "react-icons
 const OrderManagement = () => {
     const orders= [
         {
-            _id: "ORD-9082",
+            _id: "NG-9082",
             customerName: "Sarah Jenkins",
             customerEmail: "sarah.j@example.com",
             itemsCount: 3,
@@ -16,7 +16,7 @@ const OrderManagement = () => {
             orderDate: "12 Oct, 2026"
         },
         {
-            _id: "ORD-9083",
+            _id: "NG-9083",
             customerName: "Alex Rivera",
             customerEmail: "alex.r@example.com",
             itemsCount: 1,
@@ -27,7 +27,7 @@ const OrderManagement = () => {
             orderDate: "13 Oct, 2026"
         },
         {
-            _id: "ORD-9084",
+            _id: "NG-9084",
             customerName: "Emily Watson",
             customerEmail: "emily.w@example.com",
             itemsCount: 5,
@@ -38,7 +38,7 @@ const OrderManagement = () => {
             orderDate: "13 Oct, 2026"
         },
         {
-            _id: "ORD-9085",
+            _id: "NG-9085",
             customerName: "Michael Chen",
             customerEmail: "m.chen@example.com",
             itemsCount: 2,
@@ -49,7 +49,7 @@ const OrderManagement = () => {
             orderDate: "10 Oct, 2026"
         },
         {
-            _id: "ORD-9086",
+            _id: "NG-9086",
             customerName: "Jessica Taylor",
             customerEmail: "j.taylor@example.com",
             itemsCount: 4,

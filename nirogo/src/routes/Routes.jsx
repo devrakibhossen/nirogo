@@ -14,6 +14,7 @@ import AddProduct from "../pages/admin/AddProduct";
 import Settings from "../pages/admin/Settings";
 import AllProducts from "../pages/AllProducts";
 import ProductDetails from "../pages/ProductDetails";
+import TrackOrder from "../pages/TrackOrder/TrackOrder";
 
 const router = createBrowserRouter([
     {
@@ -23,6 +24,10 @@ const router = createBrowserRouter([
             {
                 index: true, 
                 element: <Home />
+            },
+            {
+                path: "track-order", 
+                element: <TrackOrder/>
             },
             {
                 path: "all-products", 
